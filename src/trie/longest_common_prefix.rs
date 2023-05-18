@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn longest_common_prefix(strings: Vec<String>) -> String {
     match strings.is_empty() {
         true => "".to_string(),

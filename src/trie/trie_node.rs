@@ -7,9 +7,9 @@ pub struct TrieNode {
     pub child_nodes: HashMap<char, TrieNode>,
 }
 
+#[allow(dead_code)]
 impl TrieNode {
-    // Create new node
-    pub fn new(c: char, is_final: bool) -> TrieNode {
+    fn new(c: char, is_final: bool) -> TrieNode {
         TrieNode {
             value: Option::Some(c),
             is_final,
@@ -19,14 +19,13 @@ impl TrieNode {
 
     pub fn new_root() -> TrieNode {
         TrieNode {
-            value: Option::None,
+            value: None,
             is_final: false,
             child_nodes: HashMap::new(),
         }
     }
 
     pub fn insert_value(&mut self, c: char, is_final: bool) {
-        // Insert the new char into the current node
         self.child_nodes.insert(c, TrieNode::new(c, is_final));
     }
 }
