@@ -63,6 +63,27 @@ mod tests {
     use super::*;
 
     #[test]
+    fn node_default() {
+        let node = TrieNode::default();
+        assert_eq!(node.children, [0, 0]);
+        let mut tire1 = Trie::new();
+        tire1.insert(1);
+        let mut tire2 = Trie::new();
+        tire2.insert(2);
+        dbg!(tire1);
+        dbg!(tire2);
+    }
+
+    #[test]
+    fn insert() {
+        let mut trie = Trie::new();
+        trie.insert(31);
+        trie.insert(14);
+        let max_xor = trie.find(2);
+        assert_eq!(max_xor, 29);
+    }
+
+    #[test]
     fn test() {
         assert_eq!(find_maximum_xor(vec![3, 10, 5, 25, 2, 8]), 28);
         assert_eq!(find_maximum_xor(vec![0]), 0);
