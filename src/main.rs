@@ -1,4 +1,5 @@
 mod backtracking;
+mod binary_search;
 mod hash;
 mod heap;
 mod hello_world;
