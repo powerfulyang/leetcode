@@ -1,3 +1,4 @@
+mod car_fleet;
 mod daily_temperatures;
 mod evaluate_reverse_polish_notation;
 mod generate_parenthesis;
