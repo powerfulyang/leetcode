@@ -36,13 +36,7 @@ mod tests {
             sort_array(powerful_integers(3, 5, 15)),
             vec![2, 4, 6, 8, 10, 14]
         );
-        assert_eq!(
-            sort_array(powerful_integers(2, 1, 10)),
-            vec![2, 3, 5, 9]
-        );
-        assert_eq!(
-            sort_array(powerful_integers(1, 2, 10)),
-            vec![2, 3, 5, 9]
-        );
+        assert_eq!(sort_array(powerful_integers(2, 1, 10)), vec![2, 3, 5, 9]);
+        assert_eq!(sort_array(powerful_integers(1, 2, 10)), vec![2, 3, 5, 9]);
     }
 }

@@ -83,7 +83,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_heap(){
+    fn test_heap() {
         let mut heap = MinHeap::new();
         heap.push(1);
         heap.push(4);

@@ -34,6 +34,16 @@ mod tests {
         let n = 4;
         let k = 2;
         let result = combine(n, k);
-        assert_eq!(result, vec![vec![1, 2], vec![1, 3], vec![1, 4], vec![2, 3], vec![2, 4], vec![3, 4]]);
+        assert_eq!(
+            result,
+            vec![
+                vec![1, 2],
+                vec![1, 3],
+                vec![1, 4],
+                vec![2, 3],
+                vec![2, 4],
+                vec![3, 4]
+            ]
+        );
     }
 }
