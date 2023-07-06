@@ -1,4 +1,5 @@
 #[allow(dead_code)]
+#[derive(PartialEq, Eq, Clone, Debug)]
 pub struct Node {
     value: i32,
     next: Option<Box<Node>>,
@@ -55,12 +56,13 @@ mod tests {
             .as_mut()
             .unwrap()
             .next = Some(Box::new(Node::new(5)));
-        let reversed_list = reverse_linked_list(Option::from(Box::from(list)));
+        let reversed_list = reverse_linked_list(Option::from(Box::from(list.clone())));
         assert_eq!(reversed_list.as_ref().unwrap().value, 5);
         assert_eq!(
             reversed_list.as_ref().unwrap().next.as_ref().unwrap().value,
             4
         );
+        let reversed_list = reverse_linked_list_recursive(Option::from(Box::from(list.clone())));
         assert_eq!(
             reversed_list
                 .as_ref()
@@ -110,4 +112,21 @@ mod tests {
             1
         );
     }
+}
+
+#[allow(dead_code)]
+fn reverse_linked_list_recursive(head: Option<Box<Node>>) -> Option<Box<Node>> {
+    fn reverse_linked_list_recursive_helper(
+        mut head: Option<Box<Node>>,
+        prev: Option<Box<Node>>,
+    ) -> Option<Box<Node>> {
+        if let Some(mut boxed_node) = head {
+            head = boxed_node.next.take();
+            boxed_node.next = prev;
+            reverse_linked_list_recursive_helper(head, Some(boxed_node))
+        } else {
+            prev
+        }
+    }
+    reverse_linked_list_recursive_helper(head, None)
 }
